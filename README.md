@@ -32,7 +32,11 @@ Our project is organized in two folders:
  2. res - contains the next packages: drawable, layout, mipmap, values.
     The layout package contains the activity_main.xml and the layout package contains the strings.xml and color.xml
     
-## UMLs and Class Diagrams: 
+    
 ## Short Video About Our Project: 
+
+https://youtu.be/zwPtR9BZY14
   
- ---------
+ --
+ Kind regards,
+ Michael Ganon & Tom Magdaci.
