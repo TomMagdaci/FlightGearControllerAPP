@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FlightGearController4</string>
+    <string name="ip">Insert IP: </string>
+    <string name="insert_ip_here">Insert IP here</string>
+    <string name="port">Insert PORT:</string>
+    <string name="connect">CONNECT</string>
+</resources>
