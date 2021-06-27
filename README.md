@@ -2,41 +2,37 @@
 
 ## Overview and Features: 
 
-Our project consists of a GUI interface (using WPF application and .NET framework) which will allow us to view and control the plane in FlightGear simulator. By recieving the data of a flight, we are able to simulate it through FlightGear and analyze several attributes related to the flight, such as throttle, altitude, airspeed, etc. Moreover, we are able to view the joystick of the plane to help us inspect the direction the plane is heading, along with a few graphs that help us visually evaluate the various aspects of the flight: the first graph is a view of the attribute selected in the attribute box, the second graph is a view of the attribute most correlated to the attribute we selected, the third graph shows the linear regression between the two attributes from the first two graphs, and the fourth graph displays anomalies from the flight in relation to the two attributes. Lastly, we developed a control panel that aids us in controlling the play speed of the flight, pause or play the simulation, and fast forward/backtrack. 
+Our project consists of an Android app which will allow us to control the plane that displayed on the FlightGear simulator.
+By communication with the FlightGear simulator, we are able to simulate a flight with sending several attributes related to the flight, such as throttle, rudder, aileron and elevator.
 The project runs on multiple threads and was developed using MVVM architechture.
 
-Regarding the graphs and anomalies, we imported all of the code written in Advanced Programming I as a c++ dll, to a WPF library that forms the shapes required and sends it to our application. The c++ dll's job is to send information about the anomaly. We were able to implement this in an abstract manner by sending an Annotation object back to the c# application, therefore it doesn't matter if we are sending back a circle annotation or a line annotation. As a result, we were able to plot on our graphs the required lines, circles, and calculate pearsons without rewriting last semester's code in c#. 
+The app contains one main activity which in it we have the next graphic view components: 
+  - Two Edit texts which will be used by the user to enter the ip and port of the pc the FlightGeat is running on.
+  - Connect button (shall be clicked by the user after entering the correct ip and port).
+  - Vertical seek bar, will be used for updating the throttle's airplane values by the user's touch (between 0-1).
+  - Horizontal seek bar, will be used  for updating the rudder's airplane values by the user's touch (between -1 - 1).
+  - Joystick, will be used for updating the aileron and elevator values by the user's touch and depending on which axis.
+
+How to use:
+  After the FightGear is running with the additional setting mentioned bellow and the engine turned on, open the app and enter the correct ip and port of the FligthGear, click the connect button and note that there are no error messages.
+  Now by using the graphic view components you can manage a flight. Enjoy!
+
+
+Mandatory:
+  - FlightGear should be running on the ip and port that are mentioned before and with the next quote in the additional setting: 
+  "--telnet=socket,in,10,127.0.0.1,6400,tcp"
+  - The cessna engine should be turned on manually in the FlightGear simulator app.
+
 
 ## Structure of the Project: 
 
-Our project is organized in three folders: 
-
-1. WpfApp1- the main folder, contains the main window, view model, and model. 
-2. controls- contains all of the controls in our main window, such as the joystick, graphs, and control panel.
-3. plugins- the folder that contians the dynamic link libraries of our project.
-
-## Required Installations: 
-
-1. Import oxyplot in appropriate files in order to view graphs
-2. Install the latest version of FlightGear on your computer 
-
-## Manual: 
-Downloading from GitHub:
-1. Clone the repository
-2. Build the solution
-3. Insert the plugins folder where the executable file is located. In addition insert the "csvs" folder in the same location with a trainFile. 
-4. Run the app and a GUI should open.
-5. Upload your CSV and XML files and press Upload File on your right hand side. 
-6. The simulation will begin, and you are free to use the controls and sliders to analyze the flight 
-7. implement the following if you wish to import your own dll:
-```cs
-List<Tuple<string, int>> getAnomalies(string trainFile, string testFile){}
-void getAttributeWithADAnnotations(string trainFile){}
-```
-
+Our project is organized in two folders:
+ 1. java - contains the com.example.flightgearcontroller4 package which contains the MainActivity class and three packages: views, viewmodel, model.
+    views contains the VerticalSeekBar and Joystick classes, viewmodel contains the ViewModel class and model contains the Model class
+ 2. res - contains the next packages: drawable, layout, mipmap, values.
+    The layout package contains the activity_main.xml and the layout package contains the strings.xml and color.xml
+    
 ## UMLs and Class Diagrams: 
-
-Our desktop application consists of 3 main parts that communicate and run. The first component is the MyFlightModel that interacts with the server via TCP communication. The second component is the ViewModel that sends data requests to the MyFlightModel and recieves notifications when data changes from the MyFlightModel. Our last component is the View (MainWindow file) that sends commands to the ViewModel and gets notified about changed data from the ViewModel. Data is displayed in our MainWindow through the process of data binding. The following link is our project UML: https://github.com/dhshark1/FlightSimulator/tree/Main_Branch/WpfApp1/WpfApp1/class%20diagram
-
 ## Short Video About Our Project: 
-https://www.youtube.com/watch?v=lR0nlxIm9Q0&ab_channel=%D7%9E%D7%99%D7%9B%D7%90%D7%9C%D7%92%D7%A0%D7%95%D7%9F
+  
+ ---------
