@@ -31,8 +31,11 @@ Our project is organized in two folders:
     views contains the VerticalSeekBar and Joystick classes, viewmodel contains the ViewModel class and model contains the Model class
  2. res - contains the next packages: drawable, layout, mipmap, values.
     The layout package contains the activity_main.xml and the layout package contains the strings.xml and color.xml
-    
-    
+        
+## UMLs and Class Diagrams:     
+
+https://github.com/TomMagdaci/FlightGearControllerAPP/blob/master/Class%20diagram/UML.PNG
+
 ## Short Video About Our Project: 
 
 https://youtu.be/zwPtR9BZY14
